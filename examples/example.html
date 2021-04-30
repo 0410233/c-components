@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>c-pagination</title>
+  <link rel="stylesheet" href="../dist/css/c-pagination.css">
+</head>
+<body>
+  <div id="pagination-demo">
+    <h1>{{ currentPage }}</h1>
+    <c-pagination :total="total" :page-size="perPage" @current-change="handlePageChange"></c-pagination>
+  </div>
+
+  <script src="../node_modules/vue/dist/vue.js"></script>
+  <script src="../dist/c-pagination.js"></script>
+  <script>
+    const pagination = new Vue({
+      el: '#pagination-demo',
+      data: function() {
+        return {
+          total: 100,
+          perPage: 15,
+          currentPage: 1,
+        };
+      },
+      methods: {
+        handlePageChange: function(page) {
+          this.currentPage = page;
+        },
+      },
+    });
+  </script>
+</body>
+</html>
